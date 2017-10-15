@@ -1,0 +1,31 @@
+{
+  "name": "decibull_messenger",
+  "version": "1.0.0",
+  "description": "messenger bot and extension that lets you search for popular soundclips",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sharkalgud/decibull_messenger.git"
+  },
+  "keywords": [
+    "decibull",
+    "bot",
+    "messenger"
+  ],
+  "author": "sharan arkalgud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sharkalgud/decibull_messenger/issues"
+  },
+  "homepage": "https://github.com/Sharkalgud/decibull_messenger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.2",
+    "request": "^2.83.0"
+  }
+}
