@@ -64,7 +64,7 @@ function processPostback(event) {
       } else {
         var bodyObj = JSON.parse(body);
         name = bodyObj.first_name;
-        greeting = "Hi " + name + ". ";
+        //greeting = "Hi " + name + ". ";
       }
       var message = greeting + "hello sir how are you? What sound clip are you looking for?";
       sendMessage(senderId, {text: message});
