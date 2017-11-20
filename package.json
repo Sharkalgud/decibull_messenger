@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/Sharkalgud/decibull_messenger#readme",
   "dependencies": {
+    "aws-sdk": "2.x",
     "body-parser": "^1.18.2",
+    "ejs": "2.x",
     "express": "^4.16.2",
     "mongoose": "^4.12.2",
+    "pg": "7.4.0",
     "request": "^2.83.0"
   }
 }

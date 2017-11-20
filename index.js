@@ -1,7 +1,13 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
+const {pgClient} = require("pg");
 
+const pg = new pgClient({
+	connectionString: process.env.DATABASE_URL,
+	ssl: true,
+});
+pg.connect();
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -67,6 +73,7 @@ function processPostback(event) {
         //greeting = "Hi " + name + ". ";
       }
       var message = greeting + "hello sir how are you? What sound clip are you looking for?";
+      testQuery();
       sendMessage(senderId, {text: message});
     });
   }
@@ -87,4 +94,20 @@ function sendMessage(recipientId, message) {
       console.log("Error sending message: " + response.error);
     }
   });
+}
+
+//test query to postgresql
+function testQuery(){
+    const query = {
+        text = 'SELECT name from CLIP_NAMES where id = (SELECT clip_names_id FROM TAGS WHERE tag_name = $1::text)',
+        values: ['bruh'],
+        rowMode: 'array',
+    };
+	pg.query(query, (err, res) => {
+		if(err){
+			console.log(err.stack)
+		} else {
+			console.log(res.row[0])
+		}
+	})
 }
